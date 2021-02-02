@@ -1,0 +1,6 @@
+---
+# defaults file for users
+
+user: bubba
+# python -c 'import crypt; print (crypt.crypt("muhpassword", "$5$muh_salt$"))'
+user_pass: $5$eb6adcb071e4a748$VqDD7VcUw4qb.0XHITTu/wDpiCtRCrUrQ8AIaSx1e57

@@ -23,3 +23,9 @@ DNS=10.1.10.1
 
 2.1. Addresses were determined by running `sudo nmap -sL X.X.X.X\X`
   to find an appropriate address block since I do not have control over my dhcp server.
+3. Because I am running on AARCH64, in order for me to run molecule tests
+  I needed to obtain a AARCH64 docker image of ArchLinux. Unfortunately, the images
+  that exist seem either sketchy, or are woefully outdated. That is why I have
+  created my own image based on a (well built) outdated one I found on
+  dockerhub. To build this image, in the root context of this repo,
+  run `docker build -t bubba/archlinux:aarch64 .`.
