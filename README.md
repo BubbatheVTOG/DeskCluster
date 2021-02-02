@@ -1,4 +1,5 @@
 # DeskCluster
+
 Ansible Playbook for my Desktop Raspi Cluster
 
 ## Hardware
@@ -22,4 +23,3 @@ DNS=10.1.10.1
 
 2.1. Addresses were determined by running `sudo nmap -sL X.X.X.X\X`
   to find an appropriate address block since I do not have control over my dhcp server.
-
