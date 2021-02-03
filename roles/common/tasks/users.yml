@@ -6,5 +6,5 @@
     system: yes
     group: wheel
     shell: /bin/bash
-    password: "{{ password }}"
+    password: "{{ user_pass }}"
 

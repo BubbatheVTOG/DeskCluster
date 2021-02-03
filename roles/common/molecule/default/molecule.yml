@@ -4,10 +4,11 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: instance_centos_common
+    image: centos:8
+  - name: instance_arch_common
     image: bubba/archlinux:aarch64
     pull: false
-    privileged: True
 provisioner:
   name: ansible
 verifier:

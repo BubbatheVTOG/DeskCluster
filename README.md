@@ -29,3 +29,8 @@ DNS=10.1.10.1
   created my own image based on a (well built) outdated one I found on
   dockerhub. To build this image, in the root context of this repo,
   run `docker build -t bubba/archlinux:aarch64 .`.
+4. Copy ssh keys to hosts via `ssh-copy-id alarm@host`. The ArchLinux AARCH64
+  image does not have ssh-keypass installed, thus ansible will not run with passwords.
+5. The images do not have a python interpreter installed. It is nessicary to
+  log into each node to update the os and install python. REMEMBER: run
+  `pacman-key --init` and `pacman-key --populate archlinuxarm` before running updates.

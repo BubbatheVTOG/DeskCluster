@@ -1,0 +1,14 @@
+---
+- name: Update Package Cache and Packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install Wanted Packages
+  pacman:
+    state: present
+    name: "{{ item }}"
+    with_items:
+      - neovim
+      - htop
+      - wget

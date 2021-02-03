@@ -1,0 +1,11 @@
+---
+# tasks file for users
+- include_tasks: users.yml
+  tags: users
+
+- include_tasks: packages.yml
+  tags: base_packages
+  when: ansible_os_family == "Archlinux"
+
+
+
