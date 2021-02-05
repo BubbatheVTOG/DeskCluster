@@ -26,6 +26,9 @@ Ansible Playbook for my Desktop Raspi Cluster
   this: `ansible-playbook -i hosts.ini site.yml -u alarm --become-method=su -K
   --tags first_run`.
   This will add a user with sudo rights, ssh keys, etc.
+8. After the first run, this command will run the rest of the playbook:
+  `ansible-playbook -i hosts.ini site.yml -u bubba`. "Bubba" is the user
+  that is set by default.
 
 ### Static IP Address Example
 

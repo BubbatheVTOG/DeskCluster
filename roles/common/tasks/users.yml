@@ -21,11 +21,18 @@
     owner: bubba
     mode: 0775
 
+- name: Stat authorized_keys File
+  stat:
+    path: /home/{{ user }}/.ssh/authorized_keys
+  register: stat_authorized_keys
+
 - name: Create authorized_keys File
   file:
     path: '/home/{{ user }}/.ssh/authorized_keys'
     owner: bubba
     mode: 0600
+    state: touch
+  when: stat_authorized_keys.stat.exists == False
 
 - name: Grant SSH Access
   lineinfile:
