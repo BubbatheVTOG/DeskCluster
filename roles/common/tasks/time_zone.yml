@@ -1,0 +1,4 @@
+---
+- name: Set Time Zone Info
+  timezone:
+    name: "{{ time_zone }}"

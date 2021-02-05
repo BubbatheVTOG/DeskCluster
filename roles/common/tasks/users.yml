@@ -8,3 +8,27 @@
     shell: /bin/bash
     password: "{{ user_pass }}"
 
+- name: Grant User Sudo Privs
+  lineinfile:
+    path: '/etc/sudoers.d/{{ user }}_sudo'
+    line: '{{ user }} ALL=(ALL) ALL'
+    create: yes
+    validate: 'visudo -cf %s'
+
+- name: Grant Bubba SSH Access
+  lineinfile:
+    path: /home/bubba/.ssh/authorized_keys
+    regexp: '^ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDP939dC/*'
+    line: '{{ public_ssh_key }}'
+
+- name: Remove Alarm User
+  user:
+    name: alarm
+    state: absent
+    remove: yes
+
+- name: Set Root Password
+  user:
+    name: root
+    password: '{{ user_pass }}'
+

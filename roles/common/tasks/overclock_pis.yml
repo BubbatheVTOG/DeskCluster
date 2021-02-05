@@ -1,0 +1,28 @@
+---
+- name: Overvolt RasPi
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^over_voltage=5'
+    line: over_voltage=5
+  notify: reboot
+
+- name: Overclock RasPi CPU
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^arm_freq=2000'
+    line: arm_freq=2000
+  notify: reboot
+
+- name: Underclock RasPi GPU
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^gpu_freq=400'
+    line: gpu_freq=400
+  notify: reboot
+
+- name: Use Less GPU Memory
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^gpu_mem=16'
+    line: gpu_mem=16
+  notify: reboot

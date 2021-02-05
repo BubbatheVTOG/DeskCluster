@@ -1,4 +1,5 @@
 ---
-- hosts: all
+- hosts: bakery
+  become: yes
   roles:
     - common
