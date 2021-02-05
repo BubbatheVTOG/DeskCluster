@@ -19,7 +19,7 @@
     path: '/home/{{ user }}/.ssh'
     state: directory
     owner: bubba
-    mode: 0775
+    mode: 0755
 
 - name: Stat authorized_keys File
   stat:

@@ -13,3 +13,5 @@
       - wget
       - rsync
       - grml-zsh-config
+      - base-devel
+      - devtools
