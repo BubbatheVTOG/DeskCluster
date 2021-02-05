@@ -34,3 +34,7 @@ DNS=10.1.10.1
 5. The images do not have a python interpreter installed. It is nessicary to
   log into each node to update the os and install python. REMEMBER: run
   `pacman-key --init` and `pacman-key --populate archlinuxarm` before running updates.
+6. Because the default `alarm` user does not have sudo rights, first run
+  this: `ansible-playbook -i hosts.ini site.yml -u alarm --become-method=su -K
+  --tags first_run`.
+  This will add a user with sudo rights, ssh keys, etc.

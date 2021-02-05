@@ -1,17 +1,22 @@
 ---
 # tasks file for users
 - include_tasks: users.yml
-  tags: users
+  tags:
+    - users
+    - first_run
 
 - include_tasks: time_zone.yml
-  tags: time_zone
+  tags:
+    - time_zone
+    - first_run
 
 - include_tasks: packages.yml
-  tags: base_packages
+  tags:
+    - base_packages
+    - first_run
   when: ansible_os_family == "Archlinux"
 
-- include_tasks: overcloc_pis.yml
-  tags: overclock
-
-
-
+- include_tasks: overclock_pis.yml
+  tags:
+    - overclock
+    - first_run

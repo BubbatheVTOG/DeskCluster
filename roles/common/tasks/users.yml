@@ -13,7 +13,14 @@
     path: '/etc/sudoers.d/{{ user }}_sudo'
     line: '{{ user }} ALL=(ALL) ALL'
     create: yes
-    validate: 'visudo -cf %s'
+
+- name: Create .ssh Dir for Bubba
+  file:
+    path: /home/bubba/.ssh
+    state: directory
+    owner: bubba
+    group: bubba
+    mode: 0775
 
 - name: Grant Bubba SSH Access
   lineinfile:
