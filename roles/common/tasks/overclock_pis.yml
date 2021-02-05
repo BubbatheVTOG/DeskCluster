@@ -1,9 +1,9 @@
----
+
 - name: Overvolt RasPi
   lineinfile:
     path: /boot/config.txt
-    regexp: '^over_voltage=5'
-    line: over_voltage=5
+    regexp: '^over_voltage=6'
+    line: over_voltage=6
   notify: reboot
 
 - name: Overclock RasPi CPU

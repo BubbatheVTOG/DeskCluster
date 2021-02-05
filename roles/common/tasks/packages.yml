@@ -1,4 +1,4 @@
----
+
 - name: Update Package Cache and Packages
   pacman:
     update_cache: yes
@@ -7,9 +7,9 @@
 - name: Install Wanted Packages
   pacman:
     state: present
-    name: "{{ item }}"
-    with_items:
+    name:
       - neovim
       - htop
       - wget
       - rsync
+      - grml-zsh-config

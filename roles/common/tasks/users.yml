@@ -1,11 +1,11 @@
----
+
 - name: Create User
   user:
     name: "{{ user }}"
     create_home: yes
     system: yes
     group: wheel
-    shell: /bin/bash
+    shell: /bin/zsh
     password: "{{ user_pass }}"
 
 - name: Grant User Sudo Privs
@@ -14,25 +14,24 @@
     line: '{{ user }} ALL=(ALL) ALL'
     create: yes
 
-- name: Create .ssh Dir for Bubba
+- name: Create .ssh Dir
   file:
-    path: /home/bubba/.ssh
+    path: '/home/{{ user }}/.ssh'
     state: directory
     owner: bubba
-    group: bubba
     mode: 0775
 
-- name: Grant Bubba SSH Access
+- name: Create authorized_keys File
+  file:
+    path: '/home/{{ user }}/.ssh/authorized_keys'
+    owner: bubba
+    mode: 0600
+
+- name: Grant SSH Access
   lineinfile:
     path: /home/bubba/.ssh/authorized_keys
     regexp: '^ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDP939dC/*'
     line: '{{ public_ssh_key }}'
-
-- name: Remove Alarm User
-  user:
-    name: alarm
-    state: absent
-    remove: yes
 
 - name: Set Root Password
   user:

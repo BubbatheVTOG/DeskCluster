@@ -1,0 +1,7 @@
+
+- name: Remove Alarm User
+  user:
+    name: alarm
+    state: absent
+    remove: yes
+
