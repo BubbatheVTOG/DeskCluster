@@ -1,0 +1,12 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+platforms:
+  - name: centos:8
+    pull: yes
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

@@ -1,7 +1,10 @@
 ---
 
- - import_tasks: ../install_packages.yml
-   tags: aur
+ - import_tasks: install_packages.yml
+   tags:
+    - aur
+    - master_node
+    - k3s
    when: ansible_os_family == "Archlinux"
 
  - import_tasks: master_service_setup.yml

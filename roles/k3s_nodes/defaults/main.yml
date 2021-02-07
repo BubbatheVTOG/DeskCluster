@@ -1,0 +1,4 @@
+---
+# defaults file for k3s
+user: bubba
+systemd_dir: /etc/systemd/system

@@ -1,0 +1,17 @@
+---
+- name: Install Docker
+  pacman:
+    state: present
+    name:
+      - docker
+      - containerd
+      - runc
+
+- name: Install k3s
+  become: yes
+  become_user: aur_builder
+  aur:
+    use: yay
+    state: present
+    name:
+      - k3s-bin
