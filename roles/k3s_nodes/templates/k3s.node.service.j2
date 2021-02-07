@@ -5,8 +5,8 @@ After=network-online.target
 
 [Service]
 Type=notify
-#ExecStartPre=-/sbin/modprobe br_netfilter
-#ExecStartPre=-/sbin/modprobe overlay
+ExecStartPre=-/sbin/modprobe br_netfilter
+ExecStartPre=-/sbin/modprobe overlay
 ExecStart=/usr/local/bin/k3s agent --server https://{{ hostvars[groups['k3s_master'][0]]['ansible_default_ipv4']['address'] }}:6443 --token {{ hostvars[groups['k3s_master'][0]]['token'] }} {{ extra_agent_args | default("") }}
 KillMode=process
 Delegate=yes
