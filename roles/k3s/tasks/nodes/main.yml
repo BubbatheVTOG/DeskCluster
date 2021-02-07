@@ -1,0 +1,10 @@
+---
+
+ - import_tasks: ../install_packages.yml
+   tags: aur
+   when: ansible_os_family == "Archlinux"
+
+ - import_tasks: node_service_setup.yml
+   tags:
+    - worker_node
+    - k3s

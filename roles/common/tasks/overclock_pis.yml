@@ -19,6 +19,8 @@
     regexp: '^gpu_freq=400'
     line: gpu_freq=400
   notify: reboot
+  when:
+    - inventory_hostname in groups['k3s_cluster']
 
 - name: Use Less GPU Memory
   lineinfile:
@@ -26,3 +28,23 @@
     regexp: '^gpu_mem=16'
     line: gpu_mem=16
   notify: reboot
+  when:
+    - inventory_hostname in groups['k3s_cluster']
+
+- name: Overclock RasPi GPU
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^gpu_freq=*'
+    line: gpu_freq=750
+  notify: reboot
+  when:
+    - inventory_hostname is deskpi
+
+- name: Use Less GPU Memory
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^gpu_mem=*'
+    line: gpu_mem=256
+  notify: reboot
+  when:
+    - inventory_hostname is deskpi

@@ -29,6 +29,8 @@ Ansible Playbook for my Desktop Raspi Cluster
 8. After the first run, this command will run the rest of the playbook:
   `ansible-playbook -i hosts.ini site.yml -u bubba -K`. "Bubba" is the user
   that is set by default.
+9. For AUR support an ansible galaxy package was uses. To install:
+  `ansible-galaxy install kewlfft.aur`.
 
 ### Static IP Address Example
 

@@ -1,0 +1,32 @@
+- name: Stat YaY
+  stat:
+    path: /usr/bin/yay
+  register: yay_result
+
+- name: Add AUR Build User to Sudoers
+  lineinfile:
+    path: '/etc/sudoers.d/{{ user }}_sudo'
+    line: '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+  when:
+    yay_result.stat.exists == False
+
+- name: Add AUR Build User to Sudoers
+  lineinfile:
+    path: '/etc/sudoers.d/{{ user }}_sudo'
+    line: '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/yay'
+    create: yes
+  when:
+    yay_result.stat.exists == False
+
+- name: Install AUR Utils
+  become: yes
+  become_user: bubba
+  aur:
+    use: makepkg
+    state: present
+    name:
+      - aurcle
+      - yay
+  when:
+    yay_result.stat.exists == False
