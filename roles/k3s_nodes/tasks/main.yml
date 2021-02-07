@@ -7,7 +7,7 @@
     - k3s
    when: ansible_os_family == "Archlinux"
 
- - import_tasks: node_service_setup.yml
+ - import_tasks: nodes_setup.yml
    tags:
     - worker_node
     - k3s

@@ -9,7 +9,6 @@
 
 - name: Install k3s
   become: yes
-  become_user: aur_builder
   aur:
     use: yay
     state: present

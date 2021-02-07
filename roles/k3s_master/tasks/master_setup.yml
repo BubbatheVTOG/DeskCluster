@@ -8,7 +8,3 @@
     owner: root
     group: root
     mode: 0755
-  notify: k3s_service_restart
-
-- name: Start the k3s_service
-  meta: flush_handlers

@@ -7,14 +7,12 @@
     - k3s
    when: ansible_os_family == "Archlinux"
 
- - import_tasks: master_service_setup.yml
+ - import_tasks: master_setup.yml
    tags:
     - master_node
     - k3s
-   host: k3s_master
 
  - import_tasks: master.yml
    tags:
     - master_node
     - k3s
-   host: k3s_master
