@@ -1,0 +1,6 @@
+---
+
+- import_tasks: master.yml
+  tags: k3s_master
+  host: master
+

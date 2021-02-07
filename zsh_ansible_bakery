@@ -1,0 +1,14 @@
+# MY_DIR="$( cd -P "$(dirname "$0")" && pwd)"
+PROJ_ROOT=/home/bubba/git/DeskCluster/
+
+BAKERY_INVENTORY=${PROJ_ROOT}hosts.ini
+BAKERY_PLAYBOOK=${PROJ_ROOT}site.yml
+ANSIBLE_PLAYBOOK=$(which ansible-playbook)
+BAKERY_USER=bubba
+ANSIBLE=$(which ansible)
+
+alias bakery_update='${ANSIBLE_PLAYBOOK} -i ${BAKERY_INVENTORY} ${BAKERY_PLAYBOOK} -u ${BAKERY_USER} -K --tags update'
+alias bakery_ping='${ANSIBLE} -i ${BAKERY_INVENTORY} bakery -u ${BAKERY_USER} -m ping'
+alias bakery_reboot='${ANSIBLE} -i ${BAKERY_INVENTORY} bakery -u ${BAKERY_USER} -K --become -m reboot'
+
+# vim:ft=sh

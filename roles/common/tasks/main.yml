@@ -9,6 +9,7 @@
   tags:
     - base_packages
     - first_run
+    - update
   when: ansible_os_family == "Archlinux"
 
 - import_tasks: users.yml
