@@ -21,7 +21,7 @@
 
 - name: Install AUR Utils
   become: yes
-  become_user: bubba
+  become_user: '{{ user }}'
   aur:
     use: makepkg
     state: present

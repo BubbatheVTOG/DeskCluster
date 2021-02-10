@@ -7,10 +7,21 @@
       - containerd
       - runc
 
+- name: Start and Enable container service
+  systemd:
+    name: docker
+    daemon_reload: yes
+    state: started
+    enabled: yes
+
 - name: Install k3s
   become: yes
+  become_user: '{{ user }}'
   aur:
     use: yay
     state: present
     name:
       - k3s-bin
+      - kubectl-bin
+      - crictl
+      - critest

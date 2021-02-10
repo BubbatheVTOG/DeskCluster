@@ -38,13 +38,13 @@
     line: gpu_freq=750
   notify: reboot
   when:
-    - inventory_hostname is deskpi
+    - inventory_hostname in groups['desk']
 
-- name: Use Less GPU Memory
+- name: Use More GPU Memory
   lineinfile:
     path: /boot/config.txt
     regexp: '^gpu_mem=*'
     line: gpu_mem=256
   notify: reboot
   when:
-    - inventory_hostname is deskpi
+    - inventory_hostname in groups['desk']

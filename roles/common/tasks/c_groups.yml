@@ -1,0 +1,21 @@
+- name: Stat cmdline.txt
+  stat:
+    path: /boot/cmdline.txt
+  register: cmdline_stat
+
+- name: Install cmdline.txt File
+  copy:
+    dest: /boot/cmdline.txt
+    src: cmdline.txt
+    mode: 0600
+    owner: root
+  when: cmdline_stat.stat.exists == False
+  notify: reboot
+
+- name: Enable cgroup via boot commandline if not already enabled for Arch
+  lineinfile:
+    path: /boot/cmdline.txt
+    backrefs: yes
+    regexp: '^((?!.*\bcgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory\b).*)$'
+    line: '\1 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory'
+  notify: reboot

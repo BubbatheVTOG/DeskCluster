@@ -5,11 +5,21 @@
     - time_zone
     - first_run
 
+- import_tasks: hostname.yml
+  tags:
+    - hostname
+    - first_run
+
 - import_tasks: packages.yml
   tags:
     - base_packages
     - first_run
     - update
+  when: ansible_os_family == "Archlinux"
+
+- import_tasks: install_yay.yml
+  tags:
+    - yay
   when: ansible_os_family == "Archlinux"
 
 - import_tasks: users.yml
@@ -25,3 +35,6 @@
   tags:
     - overclock
 
+- import_tasks: c_groups.yml
+  tags:
+    - c_groups

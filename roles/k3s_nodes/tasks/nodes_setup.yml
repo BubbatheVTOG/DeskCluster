@@ -1,10 +1,23 @@
 ---
+- name: Disable and Stop K3s Service
+  systemd:
+    name: k3s
+    daemon_reload: yes
+    state: stopped
+    enabled: no
 
-- name: Copy K3s service file
+- name: Copy K3s Service File
   template:
     src: "k3s.node.service.j2"
-    dest: "{{ systemd_dir }}/k3s-node.service"
+    dest: "{{ systemd_dir }}/k3s.service"
     owner: root
     group: root
-    mode: 0755
-  notify: k3s_service_restart
+    mode: 0600
+
+- name: Enable and Start K3s service
+  systemd:
+    name: k3s-node
+    daemon_reload: yes
+    state: restarted
+    enabled: yes
+
