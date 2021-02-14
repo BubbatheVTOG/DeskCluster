@@ -16,7 +16,7 @@
 
 - name: Enable and Start K3s service
   systemd:
-    name: k3s-node
+    name: k3s.service
     daemon_reload: yes
     state: restarted
     enabled: yes

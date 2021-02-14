@@ -15,3 +15,5 @@
       - grml-zsh-config
       - base-devel
       - devtools
+      - sshpass
+

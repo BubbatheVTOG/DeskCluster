@@ -30,3 +30,14 @@
       - yay
   when:
     yay_result.stat.exists == False
+
+- name: Install RasPi Firmware Utils
+  become: yes
+  become_user: '{{ user }}'
+  aur:
+    use: yay
+    state: present
+    name:
+      - rpi-eeprom
+      - raspberrypi-userland-aarch64
+      - raspi-config
