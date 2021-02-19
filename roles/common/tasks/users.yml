@@ -37,7 +37,7 @@
 - name: Grant SSH Access
   lineinfile:
     path: /home/bubba/.ssh/authorized_keys
-    regexp: '^ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDP939dC/*'
+    regexp: '^ecdsa-sha2-nistp521*'
     line: '{{ public_ssh_key }}'
 
 - name: Set Root Password

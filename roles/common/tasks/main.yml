@@ -39,7 +39,7 @@
   tags:
     - c_groups
 
-- import_tasks: migrate_kernels.yml
-  tags:
-    - kernels
-    - kernel
+      # NO! DON'T DO THIS!!!
+      # - import_tasks: migrate_kernels.yml
+      #   tags:
+      #     - kernel
