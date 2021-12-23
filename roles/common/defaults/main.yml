@@ -2,8 +2,8 @@
 # defaults file for users
 
 user: bubba
-# python -c 'import crypt; print (crypt.crypt("muhpassword", "$5$muh_salt$"))'
-user_pass: $5$eb6adcb071e4a748$VqDD7VcUw4qb.0XHITTu/wDpiCtRCrUrQ8AIaSx1e57
+# -1r !mkpasswd --method=sha-512 <passwd>
+user_pass: $6$JtvG8D451mXz4D0O$ng5Sc4V3qM98pl3bbimIiCHW56jg.DguPwG0jyJqfiIRd9yqF6ULR48oZszNDrXTZNBJb3whtEU7H9./2JDD1/
 time_zone: America/New_York
 public_ssh_key: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGRx4sIprBWKc64+my54G7vhNaL0IBOxSa9oIHKjt7rqkDWffghbHKRjRyk84vKG69R2M3l4QSw/6R3i5dcGVTCZwB8BRNTAn65O8kWqqMU1AUEXzJkTkVHyB361GTOV9NXFDgW3wfa7D4C6UiK52ZUTWorBLPFZCJxaZUxpn4zj+EH1Q== bubba@deskpi'
 

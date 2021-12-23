@@ -19,6 +19,6 @@
   become_user: '{{ user }}'
   aur:
     use: yay
-    state: present
+    state: latest
     name:
       - k3s-bin

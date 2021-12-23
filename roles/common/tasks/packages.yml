@@ -16,4 +16,9 @@
       - base-devel
       - devtools
       - sshpass
+        #      - ffmpeg
+        #      - curaengine
+        #      - motion
+        #      - mjpg-streamer
+        #      - octoprint
 

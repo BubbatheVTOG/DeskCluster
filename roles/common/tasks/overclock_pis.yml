@@ -31,20 +31,20 @@
   when:
     - inventory_hostname in groups['k3s_cluster']
 
-- name: Overclock RasPi GPU
-  lineinfile:
-    path: /boot/config.txt
-    regexp: '^gpu_freq=*'
-    line: gpu_freq=750
-  notify: reboot
-  when:
-    - inventory_hostname in groups['desk']
-
-- name: Use More GPU Memory
-  lineinfile:
-    path: /boot/config.txt
-    regexp: '^gpu_mem=*'
-    line: gpu_mem=256
-  notify: reboot
-  when:
-    - inventory_hostname in groups['desk']
+      #- name: Overclock RasPi GPU
+      #  lineinfile:
+      #    path: /boot/config.txt
+      #    regexp: '^gpu_freq=*'
+      #    line: gpu_freq=750
+      #  notify: reboot
+      #  when:
+      #    - inventory_hostname in groups['desk']
+      #
+      #- name: Use More GPU Memory
+      #  lineinfile:
+      #    path: /boot/config.txt
+      #    regexp: '^gpu_mem=*'
+      #    line: gpu_mem=256
+      #  notify: reboot
+      #  when:
+      #    - inventory_hostname in groups['desk']

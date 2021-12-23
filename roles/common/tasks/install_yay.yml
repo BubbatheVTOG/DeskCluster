@@ -1,23 +1,23 @@
-- name: Stat YaY
-  stat:
-    path: /usr/bin/yay
-  register: yay_result
+# - name: Stat YaY
+#  stat:
+#    path: /usr/bin/yay
+#  register: yay_result
 
 - name: Add AUR Build User to Sudoers
   lineinfile:
     path: '/etc/sudoers.d/{{ user }}_sudo'
     line: '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/pacman'
     create: yes
-  when:
-    yay_result.stat.exists == False
+      #  when:
+      #    yay_result.stat.exists == False
 
 - name: Add AUR Build User to Sudoers
   lineinfile:
     path: '/etc/sudoers.d/{{ user }}_sudo'
     line: '{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/yay'
     create: yes
-  when:
-    yay_result.stat.exists == False
+      #  when:
+      #    yay_result.stat.exists == False
 
 - name: Install AUR Utils
   become: yes
@@ -26,18 +26,16 @@
     use: makepkg
     state: present
     name:
-      - aurcle
-      - yay
-  when:
-    yay_result.stat.exists == False
+      - yay-bin
+        #  when:
+        #    yay_result.stat.exists == False
 
 - name: Install RasPi Firmware Utils
   become: yes
   become_user: '{{ user }}'
   aur:
     use: yay
-    state: present
+    state: latest
     name:
-      - rpi-eeprom
-      - raspberrypi-userland-aarch64
-      - raspi-config
+      - firmware-raspberrypi
+      - raspberrypi-bootloader

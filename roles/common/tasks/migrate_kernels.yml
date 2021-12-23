@@ -4,8 +4,8 @@
     state: present
     force: yes
     name:
-      - linux-raspberrypi4
-      - linux-raspberrypi4-headers
+      - linux-rpi
+      - linux-rpi-headers
   notify: reboot
 
 - name: Point boot to mmcblk0p0
